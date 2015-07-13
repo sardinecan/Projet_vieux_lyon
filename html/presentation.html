@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr" >
+	<head>
+		<meta name="keywords" content="les amis du vieux lyon, vieux lyon, saint jean, saint paul, saint georges"> 
+        <meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="../theme/style.css">
+		<link rel="stylesheet" type="text/css" href="../theme/js-image-slider.css">
+	    <script src="../theme/js-image-slider.js" type="text/javascript"></script>
+	    <script type="text/javascript"
+      		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD0AGOm4mLq-SSnDQS5h0WD1WfdgVVll4Y">
+    	</script>
+    	<script>
+
+            function initialize() 
+            {
+                //caractéristiques de la carte article
+                var mapOptions = 
+                {
+                    zoom: 15,
+                    center: new google.maps.LatLng(45.76242, 4.827443),
+                    mapTypeId: google.maps.MapTypeId.TERRAIN
+                };
+                //caractéristiques de la carte aside
+                var mapOption = 
+                {
+                    zoom: 13,
+                    center: new google.maps.LatLng(45.76242, 4.827443),
+                    mapTypeId: google.maps.MapTypeId.TERRAIN
+                };
+
+                var vieuxlyon;
+                var vieuxlyon2;
+                var vieuxlyon3;
+                var vieuxlyon4;
+                
+                //Carte Aside
+                var map = new google.maps.Map(document.getElementById('map-canvas'),mapOption);
+                var mapt = new google.maps.Map(document.getElementById('map-canvas2'),mapOptions);
+
+                // Coordonnées des quartiers et du vieux lyon.
+                    //Vieux lyon : carte aside
+                var coordonnees = 
+                [
+                    new google.maps.LatLng(45.75952659538707, 4.827868938446045),
+                    new google.maps.LatLng(45.75916730455632, 4.827525615692139),
+                    new google.maps.LatLng(45.75876309960624, 4.827117919921875),
+                    new google.maps.LatLng(45.758418774561456, 4.8268818855285645),
+                    new google.maps.LatLng(45.75808941818259, 4.826474189758301),
+                    new google.maps.LatLng(45.75779000160571, 4.826173782348633),
+                    new google.maps.LatLng(45.75746064151547, 4.825809001922607),
+                    new google.maps.LatLng(45.757101337381656, 4.825530052185059),
+                    new google.maps.LatLng(45.75678694436672, 4.8252081871032715),
+                    new google.maps.LatLng(45.75647254958046, 4.824972152709961),
+                    new google.maps.LatLng(45.75614318171404, 4.824714660644531),
+                    new google.maps.LatLng(45.755798840502365, 4.824457168579102),
+                    new google.maps.LatLng(45.75573895485734, 4.824070930480957),
+                    new google.maps.LatLng(45.75590364022651, 4.82374906539917),
+                    new google.maps.LatLng(45.75635277967215, 4.823298454284668),
+                    new google.maps.LatLng(45.75704145313442, 4.823019504547119),
+                    new google.maps.LatLng(45.75776005985964, 4.822847843170166),
+                    new google.maps.LatLng(45.7583888331528, 4.822869300842285),
+                    new google.maps.LatLng(45.75853854003544, 4.823427200317383),
+                    new google.maps.LatLng(45.75873315838237, 4.82374906539917),
+                    new google.maps.LatLng(45.75907748148712, 4.824049472808838),
+                    new google.maps.LatLng(45.75981103209222, 4.824371337890625),
+                    new google.maps.LatLng(45.760364931433244, 4.824779033660889),
+                    new google.maps.LatLng(45.76099367537299, 4.82499361038208),
+                    new google.maps.LatLng(45.76165235190094, 4.82525110244751),
+                    new google.maps.LatLng(45.761981687248834, 4.825551509857178),
+                    new google.maps.LatLng(45.762715199900505, 4.825723171234131),
+                    new google.maps.LatLng(45.763388825473235, 4.826023578643799),
+                    new google.maps.LatLng(45.764257041991634, 4.826409816741943),
+                    new google.maps.LatLng(45.76509530718845, 4.826602935791016),
+                    new google.maps.LatLng(45.76623293266544, 4.826688766479492),
+                    new google.maps.LatLng(45.766577209486904, 4.826388359069824),
+                    new google.maps.LatLng(45.76686161047595, 4.825916290283203),
+                    new google.maps.LatLng(45.76713104165436, 4.825551509857178),
+                    new google.maps.LatLng(45.76741543981971, 4.825229644775391),
+                    new google.maps.LatLng(45.76759505896655, 4.825315475463867),
+                    new google.maps.LatLng(45.76759505896655, 4.825809001922607),
+                    new google.maps.LatLng(45.767550154234065, 4.826195240020752),
+                    new google.maps.LatLng(45.76746034466064, 4.8265814781188965),
+                    new google.maps.LatLng(45.76737053494264, 4.827096462249756),
+                    new google.maps.LatLng(45.767205883417404, 4.827547073364258),
+                    new google.maps.LatLng(45.767011294624616, 4.827890396118164),
+                    new google.maps.LatLng(45.766652051993034, 4.828383922576904),
+                    new google.maps.LatLng(45.76635268136609, 4.828834533691406),
+                    new google.maps.LatLng(45.76609821506997, 4.829006195068359),
+                    new google.maps.LatLng(45.76575393529228, 4.829156398773193),
+                    new google.maps.LatLng(45.76540965338984, 4.82924222946167),
+                    new google.maps.LatLng(45.76520008945239, 4.829370975494385),
+                    new google.maps.LatLng(45.764616300046924, 4.829521179199219),
+                    new google.maps.LatLng(45.76388281239057, 4.829585552215576),
+                    new google.maps.LatLng(45.76337385610444, 4.829649925231934),
+                    new google.maps.LatLng(45.762864895175134, 4.829607009887695),
+                    new google.maps.LatLng(45.76220623296237, 4.829456806182861),
+                    new google.maps.LatLng(45.76177211043419, 4.8293280601501465),
+                    new google.maps.LatLng(45.76114337526669, 4.829070568084717),
+                    new google.maps.LatLng(45.76058948365366, 4.8287272453308105),
+                    new google.maps.LatLng(45.76063439398929, 4.828469753265381),
+                    new google.maps.LatLng(45.760364931433244, 4.828383922576904),
+                    new google.maps.LatLng(45.759930794577826, 4.828147888183594)
+                ];
+                    // Les 3 quartiers : carte article
+                var saintjean = 
+                [
+                    new google.maps.LatLng(45.75963276028801, 4.828008413314819),
+                    new google.maps.LatLng(45.76004444407067, 4.826699495315552),
+                    new google.maps.LatLng(45.76017169117078, 4.82675313949585),
+                    new google.maps.LatLng(45.76029893798067, 4.826645851135254),
+                    new google.maps.LatLng(45.76039624416891, 4.82649564743042),
+                    new google.maps.LatLng(45.76039624416891, 4.8263561725616455),
+                    new google.maps.LatLng(45.76039624416891, 4.826034307479858),
+                    new google.maps.LatLng(45.76038875908353, 4.825712442398071),
+                    new google.maps.LatLng(45.760433669580735, 4.825454950332642),
+                    new google.maps.LatLng(45.7604860651151, 4.825315475463867),
+                    new google.maps.LatLng(45.76058337097699, 4.8248326778411865),
+                    new google.maps.LatLng(45.76089025758365, 4.824929237365723),
+                    new google.maps.LatLng(45.76121959743011, 4.8250579833984375),
+                    new google.maps.LatLng(45.76148905585849, 4.82524037361145),
+                    new google.maps.LatLng(45.761795937483534, 4.8253583908081055),
+                    new google.maps.LatLng(45.762185150775075, 4.82549786567688),
+                    new google.maps.LatLng(45.762581846143576, 4.825530052185059),
+                    new google.maps.LatLng(45.76297853869141, 4.825637340545654),
+                    new google.maps.LatLng(45.76324798862468, 4.825830459594727),
+                    new google.maps.LatLng(45.763569829894976, 4.826184511184692),
+                    new google.maps.LatLng(45.76374197678904, 4.8262810707092285),
+                    new google.maps.LatLng(45.763727007514994, 4.8265814781188965),
+                    new google.maps.LatLng(45.7637045535964, 4.826892614364624),
+                    new google.maps.LatLng(45.76379436921659, 4.827096462249756),
+                    new google.maps.LatLng(45.7639141231519, 4.827214479446411),
+                    new google.maps.LatLng(45.76389166930859, 4.827321767807007),
+                    new google.maps.LatLng(45.76389166930859, 4.8275792598724365),
+                    new google.maps.LatLng(45.763944061595566, 4.82775092124939),
+                    new google.maps.LatLng(45.76396651541778, 4.828008413314819),
+                    new google.maps.LatLng(45.764093753572894, 4.82824444770813),
+                    new google.maps.LatLng(45.76411620733486, 4.828630685806274),
+                    new google.maps.LatLng(45.76411620733486, 4.828963279724121),
+                    new google.maps.LatLng(45.764123691920176, 4.829317331314087),
+                    new google.maps.LatLng(45.764108722748546, 4.829564094543457),
+                    new google.maps.LatLng(45.763944061595566, 4.829617738723755),
+                    new google.maps.LatLng(45.76363719178636, 4.829617738723755),
+                    new google.maps.LatLng(45.763352774358374, 4.8296284675598145),
+                    new google.maps.LatLng(45.76300099290221, 4.829596281051636),
+                    new google.maps.LatLng(45.76259681572489, 4.829510450363159),
+                    new google.maps.LatLng(45.76212527198387, 4.829370975494385),
+                    new google.maps.LatLng(45.76172857336899, 4.829220771789551),
+                    new google.maps.LatLng(45.76137678167149, 4.829092025756836),
+                    new google.maps.LatLng(45.76106241274588, 4.828941822052002),
+                    new google.maps.LatLng(45.760860317501205, 4.828855991363525),
+                    new google.maps.LatLng(45.76057588591672, 4.828716516494751),
+                    new google.maps.LatLng(45.76058337097699, 4.828534126281738),
+                    new google.maps.LatLng(45.760373788909774, 4.828437566757202)
+                ];
+
+                var saintgeorges = 
+                [
+                    new google.maps.LatLng(45.7572748764702, 4.825690984725952),
+                    new google.maps.LatLng(45.75696796997831, 4.825379848480225),
+                    new google.maps.LatLng(45.75674340318309, 4.825218915939331),
+                    new google.maps.LatLng(45.75643649376809, 4.824950695037842),
+                    new google.maps.LatLng(45.756174496590475, 4.824768304824829),
+                    new google.maps.LatLng(45.75600981202067, 4.824639558792114),
+                    new google.maps.LatLng(45.75597986931939, 4.824349880218506),
+                    new google.maps.LatLng(45.75604724037466, 4.824178218841553),
+                    new google.maps.LatLng(45.75643649376809, 4.823577404022217),
+                    new google.maps.LatLng(45.75678083104504, 4.823223352432251),
+                    new google.maps.LatLng(45.75714762276377, 4.823019504547119),
+                    new google.maps.LatLng(45.75762669403068, 4.822944402694702),
+                    new google.maps.LatLng(45.75825546882666, 4.822869300842285),
+                    new google.maps.LatLng(45.75851745623385, 4.82300877571106),
+                    new google.maps.LatLng(45.758569853567664, 4.823223352432251),
+                    new google.maps.LatLng(45.75874201588951, 4.823695421218872),
+                    new google.maps.LatLng(45.759033942090774, 4.823920726776123),
+                    new google.maps.LatLng(45.7596177899114, 4.8242104053497314),
+                    new google.maps.LatLng(45.75991719668037, 4.824446439743042),
+                    new google.maps.LatLng(45.76035133364157, 4.824628829956055),
+                    new google.maps.LatLng(45.760478580041784, 4.824875593185425),
+                    new google.maps.LatLng(45.76041869941901, 4.825422763824463),
+                    new google.maps.LatLng(45.76032887836435, 4.825766086578369),
+                    new google.maps.LatLng(45.76030642307811, 4.826291799545288),
+                    new google.maps.LatLng(45.76027648268238, 4.826527833938599),
+                    new google.maps.LatLng(45.76015672093878, 4.826635122299194),
+                    new google.maps.LatLng(45.76001450353436, 4.826645851135254),
+                    new google.maps.LatLng(45.759939652123265, 4.826838970184326),
+                    new google.maps.LatLng(45.759812404493985, 4.827257394790649),
+                    new google.maps.LatLng(45.759670186211956, 4.8277294635772705),
+                    new google.maps.LatLng(45.759602819530784, 4.8279547691345215),
+                    new google.maps.LatLng(45.75943065986491, 4.827815294265747),
+                    new google.maps.LatLng(45.759206102980706, 4.827611446380615),
+                    new google.maps.LatLng(45.758936633526716, 4.827300310134888),
+                    new google.maps.LatLng(45.758667162771374, 4.827085733413696),
+                    new google.maps.LatLng(45.75844260281445, 4.826860427856445),
+                    new google.maps.LatLng(45.758240498080525, 4.826667308807373),
+                    new google.maps.LatLng(45.75801593640651, 4.8264312744140625),
+                    new google.maps.LatLng(45.75779885926257, 4.826173782348633)
+                ];
+
+                var saintpaul = 
+                [
+                    new google.maps.LatLng(45.76415363025137, 4.829585552215576),
+                    new google.maps.LatLng(45.76455031162302, 4.829510450363159),
+                    new google.maps.LatLng(45.764954474647865, 4.829435348510742),
+                    new google.maps.LatLng(45.765321212636444, 4.829338788986206),
+                    new google.maps.LatLng(45.76537360358086, 4.82924222946167),
+                    new google.maps.LatLng(45.76577027627766, 4.829156398773193),
+                    new google.maps.LatLng(45.76610707163627, 4.8289954662323),
+                    new google.maps.LatLng(45.76639147502223, 4.8288023471832275),
+                    new google.maps.LatLng(45.766601034484054, 4.82848048210144),
+                    new google.maps.LatLng(45.766788140481154, 4.828190803527832),
+                    new google.maps.LatLng(45.76701266684923, 4.827858209609985),
+                    new google.maps.LatLng(45.76717731894481, 4.827600717544556),
+                    new google.maps.LatLng(45.767327002246326, 4.82723593711853),
+                    new google.maps.LatLng(45.767401843746455, 4.826914072036743),
+                    new google.maps.LatLng(45.767431780318404, 4.82675313949585),
+                    new google.maps.LatLng(45.7674841692806, 4.826409816741943),
+                    new google.maps.LatLng(45.76752158993778, 4.826066493988037),
+                    new google.maps.LatLng(45.76749913754651, 4.82574462890625),
+                    new google.maps.LatLng(45.767506621677924, 4.825401306152344),
+                    new google.maps.LatLng(45.76752158993778, 4.825229644775391),
+                    new google.maps.LatLng(45.76746920101069, 4.825154542922974),
+                    new google.maps.LatLng(45.76736442300895, 4.82525110244751),
+                    new google.maps.LatLng(45.76719977146564, 4.825422763824463),
+                    new google.maps.LatLng(45.767027635241654, 4.825701713562012),
+                    new google.maps.LatLng(45.766825561605266, 4.826023578643799),
+                    new google.maps.LatLng(45.76669832968088, 4.8261308670043945),
+                    new google.maps.LatLng(45.76654116043246, 4.8262810707092285),
+                    new google.maps.LatLng(45.766346569320845, 4.826463460922241),
+                    new google.maps.LatLng(45.76612204027169, 4.826667308807373),
+                    new google.maps.LatLng(45.76583763551206, 4.82675313949585),
+                    new google.maps.LatLng(45.76546341651394, 4.826624393463135),
+                    new google.maps.LatLng(45.76516403950797, 4.826549291610718),
+                    new google.maps.LatLng(45.76478981599121, 4.826474189758301),
+                    new google.maps.LatLng(45.76446798175897, 4.826399087905884),
+                    new google.maps.LatLng(45.76406381520956, 4.826313257217407),
+                    new google.maps.LatLng(45.76377939995659, 4.826216697692871),
+                    new google.maps.LatLng(45.76374946142456, 4.826442003250122),
+                    new google.maps.LatLng(45.76373449215253, 4.8266565799713135),
+                    new google.maps.LatLng(45.763727007514994, 4.8268067836761475),
+                    new google.maps.LatLng(45.763727007514994, 4.826924800872803),
+                    new google.maps.LatLng(45.76380933847254, 4.827042818069458),
+                    new google.maps.LatLng(45.76393657698615, 4.827150106430054),
+                    new google.maps.LatLng(45.76398148462757, 4.82723593711853),
+                    new google.maps.LatLng(45.76399645383332, 4.827311038970947),
+                    new google.maps.LatLng(45.764018907634444, 4.827461242675781),
+                    new google.maps.LatLng(45.76405633061623, 4.827826023101807),
+                    new google.maps.LatLng(45.76405633061623, 4.828040599822998),
+                    new google.maps.LatLng(45.76407878439325, 4.828287363052368),
+                    new google.maps.LatLng(45.76413117650448, 4.828673601150513),
+                    new google.maps.LatLng(45.76415363025137, 4.8289525508880615)
+                ];
+
+                // Caractéristiques des Polygones.
+                    //carte aside
+                vieuxlyon = new google.maps.Polygon
+                ({
+                  paths: coordonnees,
+                  strokeColor: '#FF0000',
+                  strokeOpacity: 0.8,
+                  strokeWeight: 2,
+                  fillColor: '#FF0000',
+                  fillOpacity: 0.35
+                });
+                    //carte article
+                vieuxlyon2 = new google.maps.Polygon
+                ({
+                  paths: saintjean,
+                  strokeColor: '#FF0000',
+                  strokeOpacity: 0.8,
+                  strokeWeight: 2,
+                  fillColor: '#FF0000',
+                  fillOpacity: 0.35
+                });
+
+                vieuxlyon3 = new google.maps.Polygon
+                ({
+                  paths: saintgeorges,
+                  strokeColor: '#04C962',
+                  strokeOpacity: 0.8,
+                  strokeWeight: 2,
+                  fillColor: '#04C962',
+                  fillOpacity: 0.35
+                });
+
+                vieuxlyon4 = new google.maps.Polygon
+                ({
+                  paths: saintpaul,
+                  strokeColor: '#465ADB',
+                  strokeOpacity: 0.8,
+                  strokeWeight: 2,
+                  fillColor: '#465ADB',
+                  fillOpacity: 0.35
+                });
+
+                //Carte aside
+                vieuxlyon.setMap(map);
+                //Carte  article 
+                vieuxlyon2.setMap(mapt);
+                vieuxlyon3.setMap(mapt);
+                vieuxlyon4.setMap(mapt);
+            }
+            google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+		<title>Les Amis du Vieux Lyon - Présentation</title>
+	</head>
+	<body>
+	<div id="page">
+		<header>
+			<img class="photo_accueil" src="../images/bandeau.jpg" alt="accueil">
+			<nav><!--insérer des commentaires dans la liste pour supprimer le problème de whitespace-->
+				<ul id="menu"><!--whitespace
+				--><li><a href="../index.html">Accueil</a></li><!--whitespace
+				--><li><a href="presentation.html">Présentation</a></li><!--whitespace
+	 			--><li><a href="galerie.html">Galerie</a></li><!--
+	 			--><li><a href="abonnes.php">Espace abonnés</a></li>
+				</ul>
+			</nav>
+		</header>
+		<section>
+            <h1>Présentation</h1>
+			<aside>
+				<h2>Site historique de Lyon</h2>
+				<h3>Patrimoine Mondial de l'UNESCO</h3>
+				<div id="map-canvas"></div>
+				<ul>
+					<li><strong>Coordonnées</strong> : 45° 45′ 47″ Nord 4° 49′ 41″ Est</li>  
+					<li><strong>Pays</strong> : France</li>
+					<li><strong>Subdivision</strong> : Lyon, Rhône, Rhône-Alpes</li>
+					<li><strong>Type</strong> : Culturel</li>
+					<li><strong>Critères </strong>: (ii) (iv)</li>
+					<li><strong>Superficie</strong> : 427 ha</li>
+					<li><strong>Zone tampon</strong> : 324 ha</li>
+					<li><strong>Numéro d’identification</strong> : 872</li>
+					<li><strong>Zone géographique</strong> : Europe et Amérique du Nord **</li>
+					<li><strong>Année d’inscription</strong> : 1998 (22e session)</li>	
+				</ul>	
+			</aside>
+			<article id="presentation">
+                <p><img class="title" src="../images/avl.png" alt="avl"> sont une association loi 1901, ayant pour objectif de préserver et de mettre en valeur le patrimoine culturel du quartier médiéval et Renaissance de la ville de Lyon. Notre association organise de nombreux évènements (conférences, spectacles vivants, sons et lumières, etc.) tout au long de l'année. Nous possédons aussi une très grande collection de photographies - plus ou moins anciennes - du quartier et nous avons décidé de les partager avec le public, par le biais de cette galerie virtuelle.</p>
+                <h2>Le Vieux Lyon</h2>
+				<p>Il s'agit du quartier médiéval et Renaissance de Lyon. Il est situé en bordure de Saône, au pied de la <a href="http://fr.wikipedia.org/wiki/Fourvi%C3%A8re">colline de Fourvière</a>. C'est l'un des quartiers les plus vastes concernant cette période médiévale et Renaissance (avec Venise) qui est encore resté intact jusqu'à nos jours. L'ensemble du Vieux Lyon s'étend sur 30 ha, compte 500 immeubles, 3 000 logements et 7 000 habitants.</p>
+
+				<p>Le quartier Saint-Georges constituait autrefois l'extrémité sud de Lyon et communiquait avec l'extérieur par le biais de la porte Saint-Georges, aujourd'hui détruite. Ce quartier est l'habitat d'origine des <em>canuts<span>Ouvriers tisserands de la soie sur les machines à tisser.</span></em>, avant qu'ils ne se déplacent vers la <a href="http://fr.wikipedia.org/wiki/La_Croix-Rousse">Croix-Rousse</a> pour pouvoir y loger leurs nouveaux <a href="http://www.gadagne.musees.lyon.fr/index.php/histoire_fr/content/download/2939/25760/file/zoom_metier_jacquard.pdf/">métiers Jacquard</a> nécessitant des plafonds hauts de plus de quatre mètres.</p>
+
+				<p>Saint-Jean est le quartier le plus connu, avec la <a href="http://cathedrale-lyon.cef.fr/visite/">Primatiale Saint-Jean</a>. C'est également le quartier le plus touristique du Vieux Lyon. Son artère principale est la rue Saint-Jean, traversant le quartier jusqu'au quartier Saint-Paul. Elle comporte de nombreuses curiosités architecturales, en particulier les <em> traboules <span>Passages à travers des cours d'immeubles qui permettent de se rendre d'une rue à une autre. On en trouve à Lyon, Villefranche-sur-Saône, Mâcon, Chambéry, Saint-Étienne, Louhans, Chalon-sur-Saône et une à Vienne.</span></em>. On y trouvera de très belles cours intérieures, souvent insoupçonnées et conservant leurs caractéristiques médiévales. Quartier essentiellement piéton, il permet d'agréables balades. C’est dans ce quartier que se trouve, place du petit Collège, <a href="http://www.gadagne.musees.lyon.fr/index.php/renaissance_fr/Renaissance/L-ensemble-Renaissance-Gadagne">l’ensemble Gadagne</a>. Magnifique édifice Renaissance classé monument historique, il abrite le <a href="http://www.gadagne.musees.lyon.fr/index.php/histoire_fr">musée d’histoire de Lyon</a> ainsi que <a href="http://www.gadagne.musees.lyon.fr/index.php/marionnettes_fr/Marionnettes/Musee-des-marionnettes-du-monde">le musée des marionnettes du monde</a>.</p>
+
+				<p>Saint-Paul est le quartier entourant la gare Saint-Paul et l'église du même nom. C'est le quartier lycéen du Vieux Lyon, avec deux établissements (privés) principaux, les Maristes et les Lazaristes. Le <a href="https://www.google.fr/maps/place/Pont+de+la+Feuill%C3%A9e,+Lyon/@45.7664885,4.829346,17z/data=!3m1!4b1!4m2!3m1!1s0x47f4eb01d2c632b7:0xf66c0bd9e30a0c3d">pont de la Feuillée</a> le fait communiquer avec le <a href="http://fr.wikipedia.org/wiki/Quai_Saint-Vincent">quai Saint-Vincent</a> et <a href="http://www.lyon.fr/lieu/patrimoine/place-des-terreaux.html">les Terreaux</a>. Ce quartier fut mis en scène dans le film de Bertrand Tavernier <strong><a href="http://premiere.rhonealpes.tv/tournage-du-film-l-horloger-de-saint-paul.html">L'Horloger de Saint-Paul</a></strong>, dont le magasin se situait rue Juiverie, qui tient son nom du fait que les Lyonnais d'obédience judaïque occupaient ce quartier au Moyen Âge.<br/>
+				La place Saint-Paul : On y construit en 1873 la gare qui desservit la vallée d'Azergues au nord de Lyon. L'église Saint-Paul a subi les aléas du temps : construite une première fois en 549, elle fut dévastée par les Sarrasins et reconstruite au XIIe siècle. Furent ajoutées en 1875-77 une flèche et le portail néo-gothique. Elle possède un lanterneau roman réparti en deux dômes octogonaux au sommet de l'édifice. On peut observer l'édifice en bénéficiant d'une vue d'ensemble de la place <a href="http://www.universalis.fr/encyclopedie/gerson-jean-le-charlier-dit-jean-de/">Gerson</a>, du nom d'un théologien inhumé dans l'église en 1428. Sur la place se trouve la <a href="http://www.mairie5.lyon.fr/lieu/patrimoine/maison-mourguet.html">maison Mourguet</a> où le créateur de <a href="http://fr.wikipedia.org/wiki/Guignol">Guignol</a> y monta des spectacles. Elle possède une tourelle carrée en encorbellement.</p>
+			    
+                <div id="sliderFrame">
+			        <div id="slider">
+			            <a href="http://www.menucool.com/javascript-image-slider" target="_blank">
+			                <img src="../images/lyon1.jpg" alt="Les Amis du Vieux Lyon" />
+			            </a>
+			            <img src="../images/lyon2.jpg" alt="Les Amis du Vieux Lyon"/>
+			            <img src="../images/lyon3.jpg" alt="Les Amis du Vieux Lyon"/>
+			            <img src="../images/lyon4.jpg" alt="Les Amis du Vieux Lyon"/>
+			        </div>
+			    </div>
+				
+                <p>Le quartier est classé dans la liste du patrimoine de l'humanité établie par l'UNESCO. L'architecture du Vieux Lyon dépend, à partir de la Renaissance, de Florentins formant la cour qui accompagna <a href="http://www.larousse.fr/encyclopedie/personnage/Catherine_de_M%C3%A9dicis/112124">Catherine de Médicis</a>, lors de son mariage avec le second fils du roi de France François Ier. De ce mariage royal entre l'Italie et la France, le Vieux Lyon hérite d'une architecture aux balconages des cours intérieures que l'on retrouve dans les palais de Florence. Un vrai parfum méridional et d'Italie se dégage de ses ruelles bordées de façades colorées, boutiques d'artisans, <a href="http://www.lesbouchonslyonnais.org/">bouchons lyonnais</a>... <br/>
+				Il a heureusement échappé aux nombreux projets de remaniements destructeurs, en particulier au XIXe siècle, même si de nombreux bâtiments ont été détruits, en particulier pour la construction de la gare Saint-Paul, et lorsque <em>Louis Pradel<span>Né le 5 décembre 1906 et mort le 27 novembre 1976, est un homme politique français, maire de Lyon de 1957 à 1976.</span></em>, surnommé « Le Bétonneur » (ou encore « Zizi-Béton »), était maire. Le Vieux Lyon est le premier quartier de France à faire l'objet d'une <a href="http://fr.wikipedia.org/wiki/Op%C3%A9ration_programm%C3%A9e_d%27am%C3%A9lioration_de_l%27habitat">opération programmée d'amélioration de l'habitat (OPAH)</a>, financée par l'Agence nationale d'amélioration de l'habitat (ANAH). L'objectif d'une telle mesure est de revaloriser les centres anciens des grandes villes tout en protégeant le patrimoine que ces quartiers représentent.</p>
+				
+                <div id="map-canvas2"></div>
+                <p>En vert: Saint-Georges<br/>
+                En rouge: Saint-Jean<br/>
+                En bleu: Saint-Paul</p>
+				
+                <p><br/><a href="http://www.lyon-rvl.com/">La Renaissance du Vieux-Lyon</a> est une association (loi 1901) qui a été créée en 1946. Dans les années 1960, elle s'est formellement opposée aux projets du maire Louis Pradel qui projetait de raser une partie du Vieux Lyon, alors jugé insalubre, pour y construire une voie express. Mais la forte mobilisation de l'association d'une part, et la décision de la création du premier secteur sauvegardé français par <a href="http://www.malraux.org/index.php/biographie/biodetaillee.html">André Malraux</a> (1962) à Lyon, ont eu raison des plans de Louis Pradel. Par la suite, l'association s'est attachée à faire revivre le quartier, à le restaurer avec l'aide des habitants et à le faire découvrir aux touristes. Enfin, la Renaissance du Vieux Lyon est à l'origine de la présentation de la candidature de Lyon au Patrimoine mondial de l'Unesco, qui s'est soldé par son inscription en 1998. Aujourd'hui, la Renaissance du Vieux-Lyon (aussi appelée RVL) travaille à la préservation et à la mise en valeur du patrimoine dans le Vieux Lyon, mais aussi dans la métropole. Elle veille également au bon déroulement de la vie du quartier et joue le rôle de bureau d'information auprès des touristes, des habitants, des étudiants et des chercheurs.</p>
+
+				<p id="source">Source: <a href="http://fr.wikipedia.org/wiki/Vieux_Lyon">Wikipedia</a></p>
+			
+            </article>
+		</section>
+        <footer>
+            <p><a href="footer.html#contacts"> Contacts & crédits </a> &#169; <a href="footer.html#copyright"> Mentions légales & copyright </a> Amis du Vieux Lyon</p>
+        </footer>
+    </div>
+	</body>
+</html>

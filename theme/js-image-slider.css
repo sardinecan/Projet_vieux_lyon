@@ -1,0 +1,77 @@
+/* Source: http://www.menucool.com */
+
+
+#sliderFrame, #sliderFrame div {
+    box-sizing: content-box;
+}
+#sliderFrame 
+{
+    position:relative;
+    width:600px;
+    margin: auto; 
+    margin-top: 40px;
+}
+
+#slider, #slider div.sliderInner {
+    width:600px;height:400px;
+}
+
+#slider {
+	background:#fff no-repeat 50% 50%;
+	position:relative;
+	margin:0 auto; 
+    transform: translate3d(0,0,0);
+    box-shadow: 0px 1px 5px #999999;
+}
+
+/* each bullet */
+#slider div.navBulletsWrapper div 
+{
+    width:11px; height:11px;
+    font-size:0;color:White;
+    display:inline-block; *display:inline; zoom:1;
+    overflow:hidden;
+    margin:0 6px;
+}
+
+/* Caption styles */
+#slider div.mc-caption-bg, #slider div.mc-caption-bg2 {
+	position:absolute;
+	width:100%;
+	height:auto;
+	padding:10px 0;
+	left:0px; 
+	bottom:0px;
+	z-index:3;
+	overflow:hidden;
+	font-size: 0;
+}
+#slider div.mc-caption-bg 
+{
+    
+	background:Black;
+}
+#slider div.mc-caption-bg2 {
+    background:none;
+}
+#slider div.mc-caption {
+	font: bold 14px/20px Arial;
+	color:#EEE;
+	z-index:4;
+	text-align:center;
+    background:none;
+}
+
+#slider img, #slider>b, #slider a>b {
+	position:absolute; 
+	border:none; 
+	display:none;
+}
+
+#slider div.sliderInner {
+	overflow:hidden; 
+	-webkit-transform: rotate(0.000001deg);
+	position:absolute; top:0; left:0;
+}
+
+#slider div {-webkit-transform: translate3d(0,0,0);transform: translate3d(0,0,0);}

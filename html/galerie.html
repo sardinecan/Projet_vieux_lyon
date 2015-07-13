@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr" >
+	<head>
+		<meta name="keywords" content="les amis du vieux lyon, vieux lyon, saint jean, saint paul, saint georges">
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="../theme/style.css">
+		<title>Les Amis du Vieux Lyon - Accueil</title>
+	</head>
+	<body>
+		<div id="page">
+		<header>
+			<img class="photo_accueil" src="../images/bandeau.jpg" alt="accueil">
+			<nav><!--insérer des commentaires dans la liste pour supprimer 
+				le problème de whitespace--><ul id="menu"><!--whitespace
+				--><li><a href="../index.html">Accueil</a></li><!--whitespace
+				--><li><a href="presentation.html">Présentation</a></li><!--whitespace
+	 			--><li><a href="galerie.html">Galerie</a></li><!--
+	 			--><li><a href="abonnes.php">Espace abonnés</a></li>
+				</ul>
+			</nav>
+		</header>
+		<section id="galerie">
+		<h1>Galerie</h1>
+			<aside>
+			<h2>Effectuez une recherche</h2>
+			<form method="post" action="interrogation_bdd.php">
+	   				<p>
+	       				<label>Sélectionnez un type de bâtiment :</label><br/>
+	       				<select name="theme">
+	       						<option label="tous les thèmes"></option>
+	          					<option>rues</option>
+	          					<option>traboules</option>
+	          					<option>monuments</option>
+	          					<option>facades</option>
+	          					<option>divers</option>
+	       				</select>
+	   				</p>
+	   				<p>
+	   					<label>Sélectionnez une époque :</label><br/>
+						<select name="epoque">
+							<option label="toutes les époques"></option>
+							<option>Moyen-age</option>
+							<option>Renaissance</option>
+							<option>XIXe</option>
+							<option>autre</option>
+						</select>
+					</p>
+					<p>
+	   					<label>Sélectionnez un quartier :</label><br />
+	          			<input type="radio" name="quartier" value="Saint Jean" /> <label>Saint Jean</label><br />
+	   	   				<input type="radio" name="quartier" value="Saint Paul"  /> <label>Saint Paul</label><br />
+	 	   				<input type="radio" name="quartier" value="Saint Georges" /> <label>Saint Georges</label><br />
+	 	   				<input type="radio" name="quartier" value="" checked/> <label>Pas de restriction</label><br />
+	   				</p>
+	   				<p>
+	   					<label>Sélectionnez un type:</label><br/>
+	   					<select name="type">
+	   					<option label="Tous les types"></option>
+	   						<option>Argentique</option>
+	   						<option>Numérique</option>
+	   					</select>
+	   				</p>
+	   				<input value="Rechercher" type="submit"/> 
+				</form>
+			</aside>	
+			<article>
+				<div id="mosaic">
+					<form method="post" action="interrogation_bdd.php">
+					<h2>Quartiers</h2>
+					<hr/>
+						<ul>
+						<li>
+						<figure>
+							<img src="../images/galerie/saintpaul.jpg" alt="image de la galerie">
+							<div>
+								<input type="submit" name="quartier" value="Saint Paul">
+							</div>
+						</figure>
+						</li>
+						<li>
+						<figure>
+							<img src="../images/galerie/saintjean.jpg" alt="image de la galerie">
+							<div>
+								<input type="submit" name="quartier" value="Saint Jean">
+							</div>
+						</figure>
+						</li>
+						<li>
+						<figure>
+							<img src="../images/galerie/saintgeorges.jpg" alt="image de la galerie">
+							<div>
+								<input type="submit" name="quartier" value="Saint Georges">
+							</div>
+						</figure>
+						</li>
+						</ul>
+
+						<h2>Thèmes</h2>
+						<hr/>
+						<ul>
+						<li>
+						<figure>
+							<img src="../images/galerie/rue.jpg" alt="image de la galerie">
+							<div>
+								<input type="submit" name="theme" value="rues">
+							</div>
+						</figure>
+						</li>
+						<li>
+						<figure>
+							<img src="../images/galerie/monument.jpg" alt="image de la galerie">
+							<div>
+								<input type="submit" name="theme" value="monuments">
+							</div>
+						</figure>
+						</li>
+						<li>
+						<figure>
+							<img src="../images/galerie/facade.jpg" alt="image de la galerie">
+							<div>
+								<input type="submit" name="theme" value="façades">
+							</div>
+						</figure>
+						</li>
+						<li>
+						<figure>
+							<img src="../images/galerie/divers.jpg" alt="image de la galerie">
+							<div>
+								<input type="submit" name="theme" value="divers">
+							</div>
+						</figure>
+						</li>
+						<li>
+						<figure>
+							<img src="../images/galerie/traboule.jpg" alt="image de la galerie">
+							<div>
+								<input type="submit" name="theme" value="traboules">
+							</div>
+						</figure>
+						</li>
+						</ul>
+
+						<h2>Époques</h2>
+						<hr/>
+						<ul>
+						<li>
+						<figure>
+							<img src="../images/galerie/medieval.jpg" alt="image de la galerie">
+							<div>
+								<input type="submit" name="epoque" value="Moyen-age">
+							</div>
+						</figure>
+						</li>
+						<li>
+						<figure>
+							<img src="../images/galerie/renaissance.jpg" alt="image de la galerie">
+							<div>
+								<input type="submit" name="epoque" value="Renaissance">
+							</div>
+						</figure>
+						</li>
+						<li>
+						<figure>
+							<img src="../images/galerie/xixe.jpg" alt="image de la galerie">
+							<div>
+								<input type="submit" name="epoque" value="XIXe">
+							</div>
+						</figure>
+						</li>
+						<li>
+						<figure>
+							<img src="../images/galerie/autre_epoque.jpg" alt="image de la galerie">
+							<div>
+								<input type="submit" name="epoque" value="autre">
+							</div>
+						</figure>
+						</li>
+						</ul>
+
+					</form>
+				</div>
+			</article>
+		</section>
+		<footer>
+			<p><a href="footer.html#contacts"> Contacts & crédits </a> &#169; <a href="footer.html#copyright"> Mentions légales &	 copyright </a> Amis du Vieux Lyon</p>
+		</footer>
+		</div>
+	</body>
+</html>

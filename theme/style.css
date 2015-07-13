@@ -1,0 +1,466 @@
+@font-face {
+    font-family: 'candelabook';
+    src: url('../polices/CandelaBook-webfont.eot');
+    src: url('../polices/CandelaBook-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../polices/CandelaBook-webfont.woff2') format('woff2'),
+         url('../polices/CandelaBook-webfont.woff') format('woff'),
+         url('../polices/CandelaBook-webfont.ttf') format('truetype'),
+         url('../polices/CandelaBook-webfont.svg#candelabook') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'cardinalregular';
+    src: url('../polices/Cardinal-webfont.eot');
+    src: url('../polices/Cardinal-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../polices/Cardinal-webfont.woff2') format('woff2'),
+         url('../polices/Cardinal-webfont.woff') format('woff'),
+         url('../polices/Cardinal-webfont.ttf') format('truetype'),
+         url('../polices/Cardinal-webfont.svg#cardinalregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+body /*Commun à toutes les pages*/ 
+{
+	max-width: 2000px;
+	color: black;
+	background-color: #C7C7D1;
+	font-size: 14px;
+	font-family: 'candelabook', arial;
+}
+
+.photo_accueil /* Photographie de la page index */
+{
+	max-width: 100%;
+	height: auto;
+	border-top-right-radius: 3px;
+	border-top-left-radius: 3px;
+}
+footer p 
+{
+	font-size: 12px;
+	text-align: right;
+	margin-right: 5px;
+}
+
+footer 
+{
+	background-color: grey;
+	padding: 3px;
+	margin-top: 0px;
+}
+
+footer a 
+{
+	font-weight: bold;
+	text-decoration: none;
+	color: black;
+}
+
+
+/*Thème commun à toutes les pages.*/
+
+														/* Le menu */
+#menu
+{
+	background-color: #BA9C94;
+}
+
+#menu, #menu ul
+{
+ 	margin:0;
+	list-style:none;
+	text-align: left;
+    font-size: 12px;
+	font-weight: bold;
+}
+
+#menu li
+{
+	display:inline-block; 
+	position:relative; 
+	padding-top: 10px;
+	padding-bottom: 5px;
+	width: 150px; 
+	height: 25px;
+	text-align: center;
+}
+
+#menu a /* aspect visuel des liens du menu */
+{
+    text-decoration: none; /*pour que les liens ne soient pas soulignés*/
+	font-size: 18px;
+	font-weight: bold;
+	color: black;
+}
+
+#menu a:hover /* idem lors du survol : la couleur de la bordure inférieure changent */
+{
+	color: #C7C7D1;
+}
+
+
+
+														/* Corps du document */
+														/*Commun à toutes les pages*/
+#page 
+{
+	background-color: #F6F6F6 ;
+	width: 95%;
+	border-radius: 5px;
+	margin: auto;
+	border: 2px solid #ABA3AA;
+	padding: 0;
+	min-width: 720px;
+	max-width: 1500px;
+}
+
+section 
+{
+	width: 100%; /* prend l'intégralité de la largeur de #page */
+	min-height: 320px;
+}
+
+article, aside 
+{
+	display: inline-block; /*affiche Article et aside cote à cote et aligné à partir du haut de page*/
+	vertical-align: top;
+}
+
+aside 
+{
+	margin-top: 15px;
+	margin-left: 15px;
+	background-color: rgba(186,156,148,.7);
+	border-radius: 3px;
+	border: 1px solid black;
+	padding: 10px;
+	width: 20%;
+	box-shadow: 1px 1px 3px #080A0D;
+}
+
+aside strong
+{
+	color:#BD3B33;
+	font-variant: small-caps;
+}
+
+aside ul 
+{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+article 
+{
+	margin-right: auto;
+	width: 72%;
+	margin-left: 15px;/* espace entre article et aside*/
+}
+
+article p 
+{
+	text-align: justify;
+	line-height: 1.5em;
+}
+
+h1 
+{
+	font-size: 32px;
+	font-family: 'cardinalregular';
+	margin-left: 50px;
+}
+article h2 {
+	font-family: 'cardinalregular';
+	font-size: 27px;
+}
+
+li 
+{
+	list-style: none;
+}
+
+img 
+{
+	width: 100%;
+}
+
+input, select
+{
+	border:solid 1px grey;
+	border-radius: 3px;
+}
+.file 
+{
+	border:none;
+}
+
+													/*Gestion des photographies*/
+
+										/*Pour la page galerie*/
+
+hr { 
+	border: 0; 
+	height: 1px; 
+	background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
+	background-image: -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
+	background-image: -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
+	background-image: -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
+}
+
+figure div 
+{
+	display: none;
+	height: auto;
+	width: 100%;
+	height: auto;
+	border:1px solid;
+	border-color: black;
+	border-radius: 4px;
+}
+
+figure:hover div /* affichage des notes au survol */
+{
+	display: inline;
+	position: absolute;
+	background-color: rgba(25,25,25,.7); /* légère transparence */
+	left: 0;
+	bottom: 0;
+	z-index: 500;
+	color: white;
+	line-height: 10px;
+}
+
+figure
+{
+	text-align: center;
+	background-color:#D9CEC5;
+	border-radius:4px;
+	box-shadow: 2px 2px 5px #080A0D;
+	color: #403D39;
+	font-size: 10px;
+	margin-left: 0
+}
+figure img
+{
+	max-width: 200px;
+	height: auto;
+}
+
+#galerie #mosaic 
+{
+	display: block;
+	margin-right: 5%;
+	padding: 15px; 
+	max-width: 100%;
+	margin-right: 10px;
+	text-align: center;
+}
+
+ #galerie article img 
+{
+	width: 180px; /*largeur des photographies de la galerie*/
+}
+
+										/*Pour les pages galeries et interrogation_bdd*/
+
+#mosaic 
+{
+	width: 100%;
+	margin: auto;
+	display: inline-block;
+}
+
+#mosaic li 
+{
+	display: inline-block;
+}
+
+#mosaic ul
+{
+	list-style: none;
+	display: inline-block;
+	text-align: center;
+}
+
+#mosaic select 
+{
+	display: none;
+}
+
+#mosaic img
+{
+	border-radius: 4px;
+	width: 100%;
+}
+
+#mosaic figure
+{
+	position: relative;
+	width: 180px;
+}
+
+/* Affichage des images dans la fiche détaillée */
+.grande {  
+	box-shadow: 0px 1px 5px #999;
+	border-radius: 2px;
+}
+
+
+
+
+
+													/*Gestion d'éléments plus spécifiques*/
+
+	/*Les cartes google*/
+#map-canvas 
+{
+	height: 200px;
+	width: 100%;
+	border-radius: 3px;
+}
+#map-canvas2 
+{
+	height: 400px;
+	width: 100%;
+	box-shadow: 0px 1px 5px #999;
+	margin-bottom: 20px;
+}
+
+
+	/*La page présentation.*/
+
+#presentation 
+{
+	margin-bottom: 20px;
+}
+
+#presentation a 
+{
+	font-weight: bold;
+	text-decoration: none;
+	color: #8E7A7A;
+}
+
+#presentation em 
+{
+	font-weight: bold;
+	text-decoration: none;
+	color: #8E7A7A;
+	position: relative;
+	cursor: pointer;
+	font-style: normal;
+}
+
+#presentation em span /*notes cachées*/
+{
+	display: none;
+}
+
+#presentation em:hover span /*affichage des notes au survol*/
+{
+	display: block; 	
+	position: absolute;
+	background-color: rgba(186,156,148,.9);
+	color: black;
+	font-weight: normal;
+	border: 1px grey solid;
+	width: 200px; 
+	height: auto;
+	padding: 10px;
+	right: 5px;
+	border-radius: 3px;
+}
+
+#presentation strong 
+{
+	font-style: italic;
+}
+
+#source 
+{
+	text-align: right;
+	font-size: 10px;
+}	
+
+.title 
+{
+	width:30%;
+	height: auto;
+}
+
+
+
+/*formulaire de connexion et d'ajout centrés*/
+#abonnes ul 
+{
+	display: inline-block;
+	vertical-align: top;
+}
+
+#abonnes /*n'existe plus*/
+{ 
+	margin-right: auto;
+	margin-left: auto;
+	width: 650px;
+}
+#inscription, #connexion 
+{
+	display: inline-block;
+	vertical-align: top;
+}
+
+
+#reponse 
+{ 
+	text-align:center; 
+} 
+
+.page_membres 
+{
+	margin-bottom: 20px;
+}
+
+.page_membres h1
+{
+	text-align: center;
+}
+
+.page_membres a 
+{
+	font-weight: bold;
+	text-decoration: none;
+	color: #8E7A7A;
+	font-size: 14px;
+}
+
+#article_simple 
+{
+	width: 100%;	
+}
+
+/* Affichage réponses des formulaires */
+.rep {
+	font-size: 19px;
+	font-style: bold;
+}
+
+.verif_img_admin 
+{
+	display: inline-block;
+	margin-right: 5%;
+	padding: 15px; 
+	max-width: 100%;
+	margin-right: 10px;
+	text-align: center;
+}
+
+#img_validation
+{
+text-align: left;
+
+}
